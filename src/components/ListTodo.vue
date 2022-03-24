@@ -6,7 +6,9 @@
                 <th class="col-7">Todo</th>
                 <th class="col-4">Action</th> 
             </tr>
-            <TodoItems :todoList="todoList" />     
+            <tr v-for="(todo, index) in todoList" :key="index">
+                <TodoItems :todoList="todoList" :todo="todo" :index="index"/>   
+            </tr>   
         </table>
     </div>
 </template>
@@ -42,6 +44,10 @@ td {
 
 table tr th {
     background-color: royalblue;
+}
+
+table tr:nth-child(odd) {
+    background-color: rgb(231, 233, 238);
 }
 
 table tr:nth-child(odd) {

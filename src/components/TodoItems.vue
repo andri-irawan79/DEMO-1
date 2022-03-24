@@ -1,24 +1,22 @@
 <template>
-    <tr v-for="(todo, index) in todoList" :key="index">
-        <td>{{index + 1}}.</td>
-        <td v-if="isEdit === false" class="text-start">{{todo}}</td>
-        <td v-else>
-            <input type="text" class="form-control" v-model="editedTodo">
-        </td>
-        <td>
-            <div>
-                <button class="btn btn-danger bg-danger m-1" @click="deletTodo(index)">
-                    <i class="bi bi-trash-fill me-1"></i><span>Delet</span>
-                </button>
-                <button v-if="this.isEdit == false" @click="doEdit(index)" class="btn btn-info bg-info m-1" >
-                    <i class="bi bi-pencil-square me-1"></i><span>{{changeButtonEdit()}}</span>
-                </button>
-                <button v-else @click="addEdit(index)" class="btn btn-info bg-info m-1">
-                    <i class="bi bi-pencil-square me-1"></i><span>{{changeButtonEdit()}}</span>
-                </button>
-            </div>
-        </td>     
-    </tr>
+<td>{{index + 1}}.</td>
+<td v-if="isEdit == false" class="text-start">{{todo}}</td>
+<td v-else>
+    <input type="text" class="form-control" v-model="editedTodo">
+</td>
+<td>
+    <div>
+        <button class="btn btn-danger bg-danger m-1" @click="deletTodo(index)">
+                <i class="bi bi-trash-fill me-1"></i><span>Delet</span>
+        </button>
+        <button v-if="this.isEdit == false" @click="doEdit(index)" class="btn btn-info bg-info m-1" >
+            <i class="bi bi-pencil-square me-1"></i><span>Edit</span>
+        </button>
+        <button v-else @click="addEdit(index)" class="btn btn-info bg-info m-1">
+            <i class="bi bi-pencil-square me-1"></i><span>Done</span>
+        </button>
+    </div>
+</td>
 </template>
 
 <script>
@@ -26,6 +24,8 @@ export default {
     name: 'TodoItems',
     props: {
         todoList: Array,
+        todo: String,
+        index: Number,
     },
     data(){
         return {
@@ -50,23 +50,15 @@ export default {
             else {
                 this.toDoing.splice(index, 1, this.editedTodo);
                 this.isEdit = false;
-            }
-            
-        },
-        changeButtonEdit() {
-            return this.isEdit ? 'Done' : 'Edit';
+            }   
         }
     }
 }
 </script>
 
-<style>
-tr, td {
+<style scoped>
+td {
     border: 1px solid rgb(168, 168, 168);
     padding: 10px;
-}
-
-table tr:nth-child(odd) {
-    background-color: rgb(231, 233, 238);
 }
 </style>
