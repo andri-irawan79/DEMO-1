@@ -10,7 +10,7 @@
                 <button class="btn btn-danger bg-danger m-1" @click="deletTodo(index)">
                     <i class="bi bi-trash-fill me-1"></i><span>Delet</span>
                 </button>
-                <button v-if="!isEdit" @click="doEdit(index)" class="btn btn-info bg-info m-1" >
+                <button v-if="this.isEdit == false" @click="doEdit(index)" class="btn btn-info bg-info m-1" >
                     <i class="bi bi-pencil-square me-1"></i><span>{{changeButtonEdit()}}</span>
                 </button>
                 <button v-else @click="addEdit(index)" class="btn btn-info bg-info m-1">
@@ -44,8 +44,14 @@ export default {
             this.editedTodo = this.toDoing[index];
         },
         addEdit(index){
-            this.toDoing.splice(index, 1, this.editedTodo);
-            this.isEdit = false;
+            if (this.editedTodo === '') {
+                alert('Data masih kosong')
+            }
+            else {
+                this.toDoing.splice(index, 1, this.editedTodo);
+                this.isEdit = false;
+            }
+            
         },
         changeButtonEdit() {
             return this.isEdit ? 'Done' : 'Edit';
