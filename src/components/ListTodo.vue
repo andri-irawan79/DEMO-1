@@ -1,5 +1,7 @@
 <template>
+    
     <div class="container-xl w-100 my-5">
+        <div v-if="todos.length > 3" class="alert alert-success p-2 fw-bold">Hebat!</div>
         <table class="w-100 table-striped">
             <tr class="text-black">
                 <th class="col-1">No.</th>

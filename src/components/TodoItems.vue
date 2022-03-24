@@ -2,7 +2,7 @@
 <td>{{index + 1}}.</td>
 <td v-if="isEdit == false" class="text-start">{{todo}}</td>
 <td v-else>
-    <input type="text" class="form-control" v-model="editedTodo">
+    <input type="text" ref="search" class="form-control"  v-model="editedTodo">
 </td>
 <td>
     <div>
@@ -42,6 +42,7 @@ export default {
         doEdit(index){ 
             this.isEdit = true;
             this.editedTodo = this.toDoing[index];
+            this.$refs.search.focus();
         },
         addEdit(index){
             if (this.editedTodo === '') {

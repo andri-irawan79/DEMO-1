@@ -1,6 +1,6 @@
 <template>
-    <div class="container xxl">
-        <input type="text" name="toDoing" ref="searchbar" class="form-control text-center w-100" v-model="newTodos">
+    <div class="container xxl mt-3">
+        <input type="text" name="toDoing" ref="searchbar" class="form-control text-center w-100 mb-2" v-model="newTodos">
         <div>
             <button class="btn btn-success my-4" @click="addTodoList">
                 <i class="bi bi-clipboard2-plus me-1"></i><span>Add Todo</span>
