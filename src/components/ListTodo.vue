@@ -57,20 +57,3 @@ table tr:nth-child(odd) {
 }
 </style>
 
-
-// methods: {
-//         deletTodo(index) {
-//             this.todoList.splice(index, 1);
-//         },
-//         doEdit(index){ 
-//             this.isEdit = true;
-//             this.editedTodo = this.todoList[index];
-//         },
-//         addEdit(index){
-//             this.todoList.splice(index, 1, this.editedTodo);
-//             this.isEdit = false;
-//         },
-//         changeButtonEdit() {
-//             return this.isEdit ? 'Done' : 'Edit';
-//         } 
-//     }
