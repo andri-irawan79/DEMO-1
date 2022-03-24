@@ -51,9 +51,5 @@ table tr th {
 table tr:nth-child(odd) {
     background-color: rgb(231, 233, 238);
 }
-
-table tr:nth-child(odd) {
-    background-color: rgb(231, 233, 238);
-}
 </style>
 
